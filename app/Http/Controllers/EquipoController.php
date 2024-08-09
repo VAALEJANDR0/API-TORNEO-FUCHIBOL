@@ -136,6 +136,38 @@ class EquipoController extends Controller
     }
 
 
+    public function getRendimiento($equipo_id)
+    {
+        $victoriasComoLocal = Resultado::whereHas('partido', function ($query) use ($equipo_id) {
+            $query->where('equipo_local_id', $equipo_id);
+        })->whereColumn('puntaje_equipo_local', '>', 'puntaje_equipo_visitante')->count();
+    
+        $victoriasComoVisitante = Resultado::whereHas('partido', function ($query) use ($equipo_id) {
+            $query->where('equipo_visitante_id', $equipo_id);
+        })->whereColumn('puntaje_equipo_visitante', '>', 'puntaje_equipo_local')->count();
+    
+        $empates = Resultado::whereHas('partido', function ($query) use ($equipo_id) {
+            $query->where('equipo_local_id', $equipo_id)
+                  ->orWhere('equipo_visitante_id', $equipo_id);
+        })->whereColumn('puntaje_equipo_local', '=', 'puntaje_equipo_visitante')->count();
+    
+        $derrotasComoLocal = Resultado::whereHas('partido', function ($query) use ($equipo_id) {
+            $query->where('equipo_local_id', $equipo_id);
+        })->whereColumn('puntaje_equipo_local', '<', 'puntaje_equipo_visitante')->count();
+    
+        $derrotasComoVisitante = Resultado::whereHas('partido', function ($query) use ($equipo_id) {
+            $query->where('equipo_visitante_id', $equipo_id);
+        })->whereColumn('puntaje_equipo_visitante', '<', 'puntaje_equipo_local')->count();
+    
+        $rendimiento = [
+            'victorias' => $victoriasComoLocal + $victoriasComoVisitante,
+            'empates' => $empates,
+            'derrotas' => $derrotasComoLocal + $derrotasComoVisitante,
+        ];
+    
+        return response()->json($rendimiento);
+    }
+
 
 
 }

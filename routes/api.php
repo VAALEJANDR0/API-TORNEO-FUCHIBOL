@@ -28,5 +28,6 @@ Route::middleware('api')->group(function () {
     Route::get('partidos/{id}/detalles', [PartidoController::class, 'getPartidoDetalles']);
     Route::get('equipos/{equipo_id}/partidos', [PartidoController::class, 'getPartidosPorEquipo']);
     Route::get('equipos/{equipo_id}/resultados', [ResultadoController::class, 'getResultadosPorEquipo']);
-    
+    Route::get('equipos/{equipo_id}/rendimiento', [EquipoController::class, 'getRendimiento']);
+
     });
