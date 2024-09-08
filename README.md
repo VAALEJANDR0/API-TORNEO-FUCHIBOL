@@ -1,7 +1,7 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 
-# Instalación
+# Instalación automatizado con Make
 
 ## Instalar gestor de paquetes windows chocolatey
 
@@ -23,5 +23,24 @@ En powershell dentro del proyecto ingresar el siguiente comando:
 
 make set up
 
+# Instalación manual
 
+## Levantar docker  
+
+Ingresar en powershell a la dirección de nuestra carpeta de la API
+Levantamos el docker con el siguiente comando: docker-compose up -d
+
+# Instalación de dependencias y migraciones de la BD
+
+Entramos a nuestro directorio de docker en cual esta almacenado nuestro proyecto mediante el siguiente comando:
+
+docker exec -it apitorneofuchibol /bin/bash
+
+Instalamos las dependendencias:
+
+composer install
+
+Realizmos las migraciones:
+
+php artisan migrate
 
