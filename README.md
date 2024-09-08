@@ -1,7 +1,7 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 
-# Instalación automatizado con Make
+# Instalación automatizada con Make
 
 ## Instalar gestor de paquetes windows chocolatey
 
@@ -17,7 +17,7 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocola
 
 choco install make  (Powershell con permisos de administrador)
 
-## Crear docker
+## Levantar docker e instalar dependencias y migracion de bd
 
 En powershell dentro del proyecto ingresar el siguiente comando:
 
@@ -30,7 +30,7 @@ make set up
 Ingresar en powershell a la dirección de nuestra carpeta de la API
 Levantamos el docker con el siguiente comando: docker-compose up -d
 
-# Instalación de dependencias y migraciones de la BD
+## Instalación de dependencias y migraciones de la BD
 
 Entramos a nuestro directorio de docker en cual esta almacenado nuestro proyecto mediante el siguiente comando:
 
