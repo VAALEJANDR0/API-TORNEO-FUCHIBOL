@@ -13,7 +13,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; `
 iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 
-## Instalar make para automatizar todo el proceso de instalación del docker
+## Instalar make para automatizar todo el proceso de instalación del docker.
 
 choco install make  (Powershell con permisos de administrador)
 
