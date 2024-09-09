@@ -23,7 +23,7 @@ En powershell dentro del proyecto ingresar el siguiente comando:
 
 make set up
 
-# Instalación manual
+# Instalación manual.
 
 ## Levantar docker  
 
